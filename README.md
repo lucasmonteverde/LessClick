@@ -1,0 +1,4 @@
+LessClick
+=========
+
+Bypass Ads Pages
