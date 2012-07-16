@@ -1,0 +1,26 @@
+{
+	"locale": {
+		"message": "pt-BR"
+	},
+	"description": {
+		"message": "Navegue sem precisar \"Clicar para Continuar\" em p\u00e1ginas que bloqueam o conteudo com an\u00fAncios"
+	},
+	"optionTitle": {
+		"message": "LessClick P\u00e1gina de Op\u00e7\u00f5es"
+	},
+	"pagesScript": {
+		"message": "Desmarque a op\u00e7\u00e3o para desabilitar a execu\u00e7\u00e3o dos scripts em cada site"
+	},
+	"removeScript": {
+		"message": "Desmarque a op\u00e7\u00e3o para desabilitar a execu\u00e7\u00e3o dos scripts"
+	},
+	"popupScript": {
+		"message": "Desmarque a op\u00e7\u00e3o para desabilitar a execu\u00e7\u00e3o dos scripts"
+	},
+	"save": {
+		"message": "salvar"
+	},
+	"saveSpan": {
+		"message": "Op\u00E7\u00F5es salvas"
+	}
+}

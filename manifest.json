@@ -1,0 +1,23 @@
+{
+	"name": "LessClick",
+	"version": "2.1",
+	"default_locale": "en",
+	"description": "__MSG_description__",
+	"update_url": "http://clients2.google.com/service/update2/crx",
+	"background_page": "background.html",
+	"options_page": "options.html",
+	"icons": {
+		"16": "icon16.png",
+		"32": "icon32.png",
+		"48": "icon48.png",
+		"64": "icon64.png",
+		"128": "icon128.png"
+	},
+	"permissions": ["tabs", "webRequest","webRequestBlocking", "<all_urls>"],
+	"content_scripts": [
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"js": ["lessclick.js"]
+		}
+	]
+}

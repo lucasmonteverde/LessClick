@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="options.css" />
+	<title> LessClick Options </title>
+	<script>
+	var stash, remove, popup;
+
+	function init() {
+		i18nReplace('optionTitle');
+		i18nReplace('pagesScript');
+		i18nReplace('removeScript');
+		i18nReplace('popupScript');
+		i18nReplace('save');
+		
+		chrome.extension.sendRequest({force_update:true}, function(data) {
+			stash = data.stash;
+			remove = data.remove;
+			popup = data.popup;
+			
+			var box = "";
+			
+			//Sites Script
+			for (var i = 0; i < stash.length; i++){
+				var item = stash[i];
+				box += 	'<div class="box">' +
+						'<span class="input"><input type="checkbox" id="' + item.name + '" ' + (item.enable? 'checked="checked"' : '') + '/>' + item.name + '</span>' +
+						'<span class="sites">Sites:' + parseSites(item.url) + '</span><div class="clear"></div></div>';
+			}
+			
+			document.getElementById('sites').innerHTML += box;
+			box = "";
+			
+			//Remove Elements
+			for (var i = 0; i < remove.length; i++){
+				var item = remove[i];
+				if(item.hide) continue;
+				box += 	'<div class="box">' +
+						'<span class="input"><input type="checkbox" id="' + item.name + '" ' + (item.enable? 'checked="checked"' : '') + '/>' + item.name + '</span>' +
+						'<span class="sites">Remove: ' + item.removeQuery + '</span><div class="clear"></div></div>';
+			}
+			
+			document.getElementById('remove').innerHTML += box;
+			box = "";
+			
+			//Close Popup
+			for (var i = 0; i < popup.length; i++){
+				var item = popup[i];
+				box += 	'<div class="box">' +
+						'<span class="input"><input type="checkbox" id="' + item.name + '" ' + (item.enable? 'checked="checked"' : '') + '/>' + item.name + '</span>' +
+						'<span class="sites">URL: ' + item.url + '</span><div class="clear"></div></div>';
+				
+			}
+			
+			document.getElementById('popup').innerHTML += box;
+			box = "";
+			
+			var nodes = document.getElementsByClassName('box');
+			for(var i= 0; i< nodes.length; i++){
+				var h = nodes[i].clientHeight;
+				var child = nodes[i].firstChild;
+				child.style.marginTop = (h - child.clientHeight - 10)/2 +'px';
+			}
+		});
+	}
+
+	function parseSites(url){
+		var cleanStr = url.match(new RegExp(/([\.\:\*\|\(][\d.-\w]+)/gi));
+		if(cleanStr){
+			var clean = cleanStr.join(", ").replace(/[^A-Za-z0-9.\-\,]/gi," ");
+		}
+		return clean;
+	}
+
+	function save(btn) {
+		var nodes_opt = document.getElementById('sites').getElementsByTagName('input');
+		var nodes_remove = document.getElementById('remove').getElementsByTagName('input');
+		var nodes_popup = document.getElementById('popup').getElementsByTagName('input');
+		
+		for(var i= 0; i<nodes_opt.length; i++){
+			stash[i].enable = nodes_opt[i].checked;
+		}
+		for(var i= 0; i<nodes_remove.length; i++){
+			remove[i].enable = nodes_remove[i].checked;
+		}
+		for(var i= 0; i<nodes_popup.length; i++){
+			popup[i].enable = nodes_popup[i].checked;
+		}
+		
+		var data = {
+			stash: stash,
+			remove: remove,
+			popup: popup
+		}
+		
+		//Send all changes to save in localStorage;
+		chrome.extension.getBackgroundPage().save(data,true);
+		chrome.extension.getBackgroundPage().url = null;
+		//chrome.extension.sendRequest({clear_url:true});
+		
+		var divtext = btn.nextSibling;
+		divtext.innerText = chrome.i18n.getMessage("saveSpan");
+		divtext.style.display = "inline";
+		
+		setTimeout(function() { divtext.style.display = "none" }, 1500);
+		
+	}
+
+	function i18nReplace(value) {
+		return document.getElementById(value).innerText = chrome.i18n.getMessage(value);
+	}
+
+	</script>
+</head>
+<body onload="init();">
+
+<div class="contentBox">
+<div id="header">
+	<h1 id="optionTitle"></h1>
+</div>
+
+<h4>Pages Scripts: <span id="pagesScript"></span></h4>
+<div class="section-content">
+	<div id="sites"></div>
+</div>
+
+<h4>Remove Elements Page Scrips: <span id="removeScript"></span></h4>
+<div class="section-content">
+	<div id="remove"></div>
+	<div class="clear"></div>
+</div>
+
+<h4>Close Popup Scrips: <span id="popupScript"></span></h4>
+<div class="section-content">
+	<div id="popup"></div>
+	<div class="clear"></div>
+</div>
+<div class="closeBtn">
+	<button id="save" onclick="save(this)"></button><span></span>
+</div>
+</div>
+
+<div id="footer">&copy;2010 LessClick</div>
+</body>
+</html>

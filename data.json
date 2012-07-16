@@ -1,0 +1,170 @@
+﻿{
+	"stash": [
+		{
+			"name": "Redirect",
+			"url": "http:\/\/.*(?:protectorlink.info|linkagratis.info|downgratis.com|mvdownloads.com|cachorrolouco.net|allcdsmp3.net|baixarfacil.net|links10.info|linkenterprise.110mb.com)\/.*?=(.*)",
+			"replaceUrl": "$1" 
+		},
+		{
+			"name": "Hoooster Redirect",
+			"url": "http://www.hoooster.com/show/(.*)",
+			"replaceUrl": "http://www.hoooster.com/images/$1" 
+		},
+		{
+			"name": "Pixhost Redirect",
+			"url": "http://www.pixhost.org/show/.*",
+			"replaceQuery": "#show_image" 
+		},
+		{
+			"name": "Linkbucks Family",
+			"url": "http://.*(linkbucks|baberepublic|blahetc|linkseer|picturesetc|placepictures|qvvo|realfiles|seriousfiles|seriousurls|thatsprime|thesefiles|thesegalleries|thosegalleries|tinybucks|uberpicz|ubervidz|ubucks|ugalleries|urlpulse|viraldatabase|youfap|zxxo|allanalpass|tnabucks)",
+			"replaceQuery": "noscript" 
+		},
+		{
+			"name": "Pburl - Redirect",
+			"url": "http://.*pburl.com/.*",
+			"replaceQuery": "font>a" 
+		},
+		{
+			"name": "imagePorter - Replace",
+			"url": "http://.*(imageporter.com|imageswitch.com)/[^i].*",
+			"replaceQuery": "img[onload]" 
+		},
+		{
+			"name": "HotlinkImage - Replace",
+			"url": "http://.*hotlinkimage.com/.*",
+			"replaceQuery": "#img" 
+		},
+		{
+			"name": "Freebunker - Replace",
+			"url": "http://.*(freebunker.com|imagesnake.com)/show/.*",
+			"replaceQuery": "#img_obj" 
+		},
+		{
+			"name": "ForumWizard.net - Replace",
+			"url": "http://img.forumwizard.net/show.php/",
+			"replaceQuery": "#img_obj" 
+		},
+		{
+			"name": "ImgChili",
+			"url": "http://.*imgchili.com/show/.*",
+			"replaceQuery": "#show_image" 
+		},
+		{
+			"name": "ymages.org - Ads Remove",
+			"url": "http://.*ymages.org/.*",
+			"customScript": "ymages" 
+		},
+		{
+			"name": "Adf.ly - Redirect",
+			"url": "http://.*adf.ly/.*",
+			"customScript": "adf.ly" 
+		},
+		{
+			"name": "Link Protector",
+			"url": "http://.*link-protector.com.*",
+			"customScript": "protector.com" 
+		},
+		{
+			"name": "UrlCash - Redirect",
+			"url": "http://.*urlcash.net/.*",
+			"eval": "document.title.slice(1, -1)" 
+		},
+		{
+			"name": "UrImageUpload - Ads Remove",
+			"url": "http://.*urimageupload.com/.*",
+			"removeQuery": "iframe" 
+		},
+		{
+			"name": "Webcam Remove",
+			"url": "http://.*(thepiratebay.org|youjizz.com|jizzhut.com|jizzbo.com|jizzonline.com|4tube.com|slutload.com|eskimotube.com).*",
+			"removeQuery": "iframe, #ui-toaster-br,#taskbar,#chatWindow,#closeChatArea,#closeArea,script[src*=amateurmatch]" 
+		},
+		{
+			"name": "Real Rap Talk - Ads and webcam Remove",
+			"url": "http://.*realraptalk.com/.*",
+			"removeQuery": "iframe,center,#im_popupFixed,#popupJS,#taskbar,#chatWindow,#closeChatArea,#closeArea,td[width='160'], #welcome .inner, #zzsldr" 
+		},
+		{
+			"name": "ImageBam - Popup Remove",
+			"url": "http://.*imagebam.com/.*",
+			"removeQuery": "div[style*='opacity'], div[style*='opacity']+div" 
+		},
+		{
+			"name": "ImageVenue - Ads Remove",
+			"url": "http://.*imagevenue.com/.*",
+			"removeQuery": "#interVeil,#interContainer" 
+		},
+		{
+			"name": "imagetwist - Ads Remove",
+			"url": "http://.*imagetwist.com/.*",
+			"removeQuery": "#overlayBg,#taskbar,#chatWindow,#closeChatArea,#closeArea" 
+		},
+		{
+			"name": "Youtube - Video Ads Remove",
+			"url": "http://.*youtube.*/.+",
+			"customScript": "youtube.com" 
+		},
+		{
+			"name": "Veemi Embed Ads Remove",
+			"url": "http://www.veemi.com/embed.*",
+			"removeQuery": "#adsdiv" 
+		},
+		{
+			"name": "Revistasgratis Images",
+			"url": "http://www.revistasgratis.ws/tag/.*",
+			"customScript": "revistasgratis" 
+		},
+		{
+			"name": "Revistasgratis Downloads",
+			"url": "http://down.revistasgratis.ws/.*",
+			"replaceQuery": "#MobiMidia_MsgFinal a" 
+		},
+		{
+			"name": "Yahoo Ads",
+			"url": "http://.*mail.yahoo.com/.*",
+			"removeQuery": "#theMNWAd, #slot_REC, #slot_LREC, #slot_MIP, #theAd" 
+		}
+	],
+	"remove": [
+		{
+			"name": "AdultAdsMedia - Remove ads",
+			"removeQuery": "#slashpage, #adworldbox" 
+		},
+		{
+			"name": "AdultFriendFinder - Remove ads",
+			"removeQuery": "#FFN_Banner_Holder,#FFN_imBox_Container" 
+		},
+		{
+			"name": "EroIMslider - Remove ads",
+			"removeQuery": "#EroIMslider" 
+		},
+		{
+			"name": "CGhbULxFFMyoA",
+			"removeQuery": "#CGhbULxFFMyoA",
+			"hide": true
+		} 
+	],
+	"popup": [
+		{
+			"name": "Livejasmin - Close Page/Popup ",
+			"url": "livejasmin.com"
+		},
+		{
+			"name": "xmatch - Close Page/Popup",
+			"url": "xmatch.com"
+		},
+		{
+			"name": "xvideoslive - Close Page/Popup",
+			"url": "xvideoslive.com"
+		},
+		{
+			"name": "youjizzlive - Close Page/Popup",
+			"url": "youjizzlive.com"
+		},
+		{
+			"name": "streamate - Close Page/Popup",
+			"url": "streamate.com"
+		} 
+	]
+}

@@ -1,0 +1,42 @@
+body {
+	font-family: arial, sans-serif;
+	margin:10px;
+	background: #EBEFF9;
+	font-size: 13px;
+}
+
+.box{
+	padding:5px 0px;
+	margin:7px 0;
+	border: 1px solid #bec9ce;
+	background:#EBEFF9;
+}
+.input{float:left; width:160px;  display:block;}
+.sites{float:left; font-size:11px; padding:0 5px; width:400px;background:#ddd; display:block; margin-left:15px;}
+#header { padding:1em 0 }
+#header h1 {font-size: 30px;display: inline;color: #3d5d6a;padding: 70px 0 40px 90px;background: url(icon64.png) no-repeat 1px 62px;}
+  
+h4 {padding-left: 0.5em;border-bottom: 2px dotted #c3c3c3;color: #333333;line-height: 28px;font-size: 15px;}
+h4 span {font-size:12px; font-style:italic}
+.section-header {
+	background: #ebeff9;
+	border-top: 1px solid #b5c7de;
+	font-size: 99%;
+	padding: 3px 0 2px 5px;
+	font-weight: bold;
+	margin: 1em 0;
+}
+.contentBox {
+	background-color: #ffffff;
+	border: 3px solid #bec9ce;
+	border-radius: 20px 20px;
+	padding: 30px;
+	text-align: left;
+	margin: 50px auto 20px auto;
+	width: 600px;
+}
+.section-content {padding-left: 0px;line-height: 25px;}
+.clear {clear: both;}
+.closeBtn {margin: 20px 0 0 0;}
+.closeBtn span{ margin-left:10px; background:#ddd}
+#footer {text-align: center;font-size: 13px;}

@@ -1,0 +1,26 @@
+{
+	"locale": {
+		"message": "en"
+	},
+	"description": {
+		"message": "Surf without need \"Click to continue\" on content pages protected by ads"
+	},
+	"optionTitle": {
+		"message": "LessClick Option Page"
+	},
+	"pagesScript": {
+		"message": "Uncheck to disable script execution on each site"
+	},
+	"removeScript": {
+		"message": "Uncheck to disable script execution"
+	},
+	"popupScript": {
+		"message": "Uncheck to disable script execution"
+	},
+	"save": {
+		"message": "Save"
+	},
+	"saveSpan": {
+		"message": "Options Saved"
+	}
+}
